@@ -24,6 +24,29 @@ window.UNIVERSE_ABI = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "allPendingExpsDetail",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "es",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "aims",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "leaders",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "contract Astropia",

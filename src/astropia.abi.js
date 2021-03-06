@@ -21,9 +21,14 @@ window.ASTROPIA_ABI = [
     "name": "allCardsOf",
     "outputs": [
       {
-        "internalType": "bytes32[]",
+        "internalType": "uint256[]",
         "name": "cards",
-        "type": "bytes32[]"
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "workIDs",
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",

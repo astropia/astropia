@@ -1,6 +1,6 @@
 const ORIGIN = '0x2B158bf42f1E1c9909D66F789853d6fD07A68f11'
-const ASTROPIA = '0xFfe497dBAEA833cc61eB69dAa39eD114cA58B3ea'
-const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
+const ASTROPIA = '0xe5C26f8435ac53e976A42118DDA67C167d39d646'
+const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
 
 ;(async () => {
   let account
@@ -34,6 +34,7 @@ const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
 
   let lock = false
   let cards = []
+  let working = []
   function update() {
     if (lock) {
       return
@@ -42,13 +43,24 @@ const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
     Promise.all([
       universe.methods.allPendingExps().call(),
       astropia.methods.allCardsOf(account).call().then(res => {
-        cards = res
-        // TODO returns working IDs
-        return []
+        const c = []
+        const works = []
+        for (let i = 0; i < res.cards.length; i++) {
+          if (res.workIDs[i] !== '0') {
+            works.push(res.workIDs[i])
+          } else {
+            c.push(res.cards[i])
+          }
+          cards = c
+        }
+        return works
       }).then(workIDs => {
         return Promise.all(workIDs.map(id => universe.methods.exploration(id).call()))
       }).then(es => {
-        console.log('hi', es)
+        working = es.map(item => ({
+          aim: item.aim,
+          leader: item.leader
+        }))
       })
     ]).then(() => {
       lock = false
@@ -56,11 +68,13 @@ const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
   }
   setInterval(() => {
     update()
-  }, 1000)
+  }, 2000)
 
   function createExploration(type) {
-    universe.methods.createExploration(ASTROPIA, 'cardId', type * 3000 + 2000).send({
+    universe.methods.createExploration(ASTROPIA, cards[0], type * 3000 + 2000).send({
       from: account
     })
   }
+
+  window.createExploration = createExploration
 })()
