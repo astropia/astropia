@@ -24,8 +24,8 @@ html,
 body {
   font-family: 'Roboto', sans-serif;
   position: relative;
-  height: 100%;
-  background: #1d282e;
+  /* height: 100%; */
+  background: #1d282e20;
   color: #505458;
 }
 #wrapper {
@@ -38,7 +38,7 @@ body {
   -moz-transform: translate(0, 0);
   -o-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
-  background: #1d282e;
+  /* background: #1d282e; */
   overflow: hidden;
   transition: transform 0.4s ease;
   -webkit-transition: -webkit-transform 0.4s ease;
@@ -907,7 +907,7 @@ Version 2.0
 */
 .header-top {
   height: 55px;
-  background: #1d282e;
+  background: #171c2f;
   color: #ffffff;
 }
 .header-top .logo {
@@ -1156,7 +1156,7 @@ Version 2.0
     left: 0;
     top: 55px;
     width: 100%;
-    background: #1d282e;
+    /* background: #1d282e; */
     /* border-bottom: 2px solid black; */
   }
   .nav-horizontal .menu {

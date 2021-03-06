@@ -1,6 +1,6 @@
 const ORIGIN = '0x2B158bf42f1E1c9909D66F789853d6fD07A68f11'
-const ASTROPIA = '0xFfe497dBAEA833cc61eB69dAa39eD114cA58B3ea'
-const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
+const ASTROPIA = '0xe5C26f8435ac53e976A42118DDA67C167d39d646'
+const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
 
 ;(async () => {
   let account
@@ -40,14 +40,14 @@ const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
     }
     lock = true
     contract.methods.crystalOf(account).call().then(res => {
-      ash.innerHTML = (Number(res.amount) / 1e20).toFixed(2)
+      ash.innerHTML = (Number(res.amount) / 1e19).toFixed(2)
       balance.innerHTML = (Number(res.investment) / 1e18).toFixed(2)
       lock = false
     })
   }
   setInterval(() => {
     update()
-  }, 1000)
+  }, 2000)
 
   function invest(amount) {
     contract.methods.invest().send({

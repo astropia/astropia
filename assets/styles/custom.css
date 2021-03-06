@@ -1,5 +1,8 @@
-body {
-  background-color:#1d282e ;
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .pool {
   margin: 0px !important;
@@ -41,7 +44,7 @@ body {
 }
 .advanture h2 {
 font-size: 60px;
-margin-top: 150px;
+margin-top: 120px;
 font-weight: bold;
 }
 
@@ -612,7 +615,7 @@ svg {
   margin: 80px auto;
 }
 body {
-  background: #333;
+  /* background: #333; */
   text-align: center;
   color: #eee;
   font-family: system-ui, sans-serif;
