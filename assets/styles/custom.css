@@ -76,8 +76,13 @@ font-weight: bold;
 
 .collection-list p {
   vertical-align: bottom;
-  
 }
+
+.collection-desc {
+  background:rgb(45, 56, 78);
+  color:white;
+}
+
 
 .collection-list-1 {
   background: url(../images/boy1.jpg) no-repeat;
@@ -91,19 +96,16 @@ font-weight: bold;
   -webkit-border-radius:0px;
   padding-left:0;
   padding-right:0;
-  color: black;
 }
 
 .collection-desc h1{
   font-size:16px;
-  color:black;
   text-align: left;
   margin:0;
 }
 
 .collection-desc p {
   font-size:10px ;
-  color:black;
   padding-left:15px;
 
 }
@@ -118,7 +120,7 @@ font-weight: bold;
 
 .collection-desc .summon {
   text-align: center;
-  background-color: #1d282e;
+  background-color: #7429b9;
   line-height: 40px;
   margin-left: 15px;
   border-radius: 5px;
@@ -126,7 +128,7 @@ font-weight: bold;
 }
 .collection-desc .summon:hover {
   text-align: center;
-  background-color: #47535a;
+  background-color: #954ed8;
   line-height: 40px;
   margin-left: 15px;
   border-radius: 5px;
@@ -200,7 +202,7 @@ font-weight: bold;
   background-color: #47535a;
   border-radius: 2px;
   padding:0 5px;
-  color:black;
+  color:#ffffff50;
 }
 
 .ongoing .meter p {
@@ -212,13 +214,13 @@ font-weight: bold;
  }
 .advanture-back {
   padding:20px 10px;
-  background-color: #00000030;
+  background-color: #ffffff30;
   margin:0 30px 0 0;
   border-radius: 10px;
 
 }
 .advanture-back .back {
-  color:#47535a;
+  color:#ffffff50;
 }
 
 
@@ -227,7 +229,7 @@ font-weight: bold;
   background-color:#47535a;
   border-radius:2px;
   padding:0 5px;
-  color:black;
+  color:#ffffff50;
 }
 
 .gift {
@@ -246,13 +248,13 @@ font-weight: bold;
 }
 
 .teams {
-  background-color: #00000080;
+  background-color: #7429b9;
   border-radius: 10px;
   padding:20px 10px;
 }
 
 .team-list {
-  background-color: rgb(36, 35, 35);
+  background-color: #00000020;
 
 padding: 10px 0;
 border-radius: 4px;
@@ -261,11 +263,12 @@ margin:10px 0 0 0;
 
 .team-list span {
   font-size: 10px;
-  background-color: #47535a;
-  color: #000;
+  background-color: #00000030;
+  color: #ffffff70;
   padding:0 5px;
   margin-left: 10px;
   border-radius: 2px;
+  font-weight: normal;
 
 
 }
@@ -309,7 +312,7 @@ margin:10px 0 0 0;
 }
 
 .header-top {
-  height:100px;
+  height:70px;
   
 }
 
@@ -323,18 +326,19 @@ margin:10px 0 0 0;
   background: url(../images/logowhtie.png) no-repeat;
   background-size: contain;
   width: 300px;
-  height: 90px;
+  height: 40px;
   margin: 10px 0 0 0;
 }
 .nav-horizontal {
   z-index:10;
   position: relative;
-  top:20px;
+  top:0;
 
 }
 .nav-horizontal .menu > li > a {
-  font-size: 20px;
-  color:rgb(255, 157, 0)
+  font-size: 10px;
+color:white;
+font-weight: bold;
 }
 
 #wrapper {
@@ -512,7 +516,7 @@ svg {
   height: 10px; /* Can be anything */
   position: relative;
   margin: 40px 0 20px 0; /* Just for demo spacing */
-  background: rgb(16, 16, 27);
+  background: rgb(45, 56, 78);
   border-radius: 25px;
   padding: 2px;
   /* box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3); */
