@@ -19,10 +19,10 @@
 	<link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
 
 	<!-- Waves Effect -->
-	<link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+	<!-- <link rel="stylesheet" href="assets/plugin/waves/waves.min.css"> -->
 
 	<!-- Sweet Alert -->
-	<link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+	<!-- <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css"> -->
 	
 	<!-- Color Picker -->
 	<link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css">
@@ -97,13 +97,13 @@
 			</div>
 			<div class="col-lg-6 staked">
 				<div class="row">
-				<div class="col-lg-6 ash"><span>0.00 Ash🌟 </span>Gained</div>
-				<div class="col-lg-6 BSC"><span>0.00 BSC </span>Staked</div>
+				<div class="col-lg-6 ash"><span><span id="ash">...</span> Ash🌟 </span>Gained</div>
+				<div class="col-lg-6 BSC"><span><span id="balance">...</span> BSC </span>Staked</div>
 				</div>
 				<div class="row row-inline-block small-spacing">
-					<div class="col-lg-3"><btn class="col-lg-12">+1 BSC</btn></div>
-					<div class="col-lg-3"><btn class="col-lg-12">+2 BSC</btn></div>
-					<div class="col-lg-3"><btn class="col-lg-12">+5 BSC</btn></div>
+					<div class="col-lg-3"><btn id="add-1" class="col-lg-12">+1 BSC</btn></div>
+					<div class="col-lg-3"><btn id="add-2" class="col-lg-12">+2 BSC</btn></div>
+					<div class="col-lg-3"><btn id="add-5" class="col-lg-12">+5 BSC</btn></div>
 					<div class="col-lg-3"><btn class="col-lg-12" id="unstake">Unstake</btn></div>
 					</div>
 
@@ -115,7 +115,7 @@
 				
 					<!-- /.dropdown js__dropdown -->
 				</div>
-				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">CJ-D</h1><br><p><span>100 Ash🌟</span> to Collect<br><span>2/10</span> left</p><div class="col-lg-6 summon">Summon</div></div>
+				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">CJ-D</h1><br><p><span>50 Ash🌟</span> to Collect<br>2/10 left</p><div class="col-lg-6 summon">Summon</div></div>
 				<!-- /.box-content -->
 			</div>
 			<div class="col-lg-3 col-md-6 col-xs-12 collection-list">
@@ -133,16 +133,16 @@
 				
 					<!-- /.dropdown js__dropdown -->
 				</div>
-				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">#1 CJ-D</h1><br><p><span>100 Ash🌟</span> to Collect<br><span>2/10</span> left</p><div class="col-lg-6 summon">Summon</div></div>
+				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">CJ-D Plus</h1><br><p><span>150 Ash🌟</span> to Collect<br>2/10 left</p><div class="col-lg-6 summon">Summon</div></div>
 				<!-- /.box-content -->
 			</div>
 			<div class="col-lg-3 col-md-6 col-xs-12 collection-list">
-				<div class="box-content collection-list-1">
+				<div class="box-content collection-list-2">
 					<!-- /.box-title -->
 				
 					<!-- /.dropdown js__dropdown -->
 				</div>
-				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">#1 CJ-D</h1><br><p><span>100 Ash🌟</span> to Collect<br><span>2/10</span> left</p><div class="col-lg-6 summon">Summon</div></div>
+				<div class="box-content collection-desc col-lg-12"><h1 class="col-lg-6">Astro Plus</h1><br><p><span>200 Ash🌟</span> to Collect<br>2/10 left</p><div class="col-lg-6 summon">Summon</div></div>
 				<!-- /.box-content -->
 			</div> 
 			
@@ -196,13 +196,16 @@
 	<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="assets/plugin/nprogress/nprogress.js"></script>
-	<script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
-	<script src="assets/plugin/waves/waves.min.js"></script>
+	<!-- <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script> -->
+	<!-- <script src="assets/plugin/waves/waves.min.js"></script> -->
 	<!-- Full Screen Plugin -->
 	<script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
 
 	<script src="assets/scripts/main.min.js"></script>
 	<script src="assets/scripts/horizontal-menu.min.js"></script>
 	<script src="assets/color-switcher/color-switcher.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
+	<script src="src/astropia.abi.js"></script>
+	<script src="src/avatar.js"></script>
 </body>
 </html>
