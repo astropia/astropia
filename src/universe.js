@@ -174,7 +174,6 @@ function draw(gl) {
   draw(gl)
 
   document.body.append(canvas)
-  console.log(1)
 
   window.addEventListener('resize', () => {
     canvas.width = innerWidth
