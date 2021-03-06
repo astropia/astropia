@@ -79,7 +79,7 @@ const UNIVERSE = '0xa6C297d5bD79B503877882450559DB33e88D1F87'
       from: account
     }).then(res => {
       if (res.blockHash) {
-        location.pathname = '/TODO'
+        location.pathname = '/dashboard'
       }
     })
   }
