@@ -184,10 +184,116 @@ font-weight: bold;
   background-color: #5d666b;
 }
 
-
-.ongoing .desc {
-  font-size: 16px;
+#advanture {
+  padding-top:50px;
 }
+
+.ongoing .meter {
+  font-size: 14px;
+}
+
+.ongoing .desc > span {
+  font-size:12px;
+  background-color: #47535a;
+  border-radius: 2px;
+  padding:0 5px;
+  color:black;
+}
+
+.ongoing .meter p {
+  text-align: left;
+  font-size: 10px;
+}
+ .ongoing {
+   padding-left: 0;
+ }
+.advanture-back {
+  padding:20px 10px;
+  background-color: #00000030;
+  margin:0 30px 0 0;
+  border-radius: 10px;
+
+}
+.advanture-back .back {
+  color:#47535a;
+}
+
+
+
+.advanture-back span {
+  background-color:#47535a;
+  border-radius:2px;
+  padding:0 5px;
+  color:black;
+}
+
+.gift {
+  background-color: rgb(255, 153, 0);
+  padding:5px;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.gift:hover {
+  background-color: rgb(230, 95, 5);
+}
+.advanture-back .back {
+  font-size: 10px;
+}
+
+.teams {
+  background-color: #00000080;
+  border-radius: 10px;
+  padding:20px 10px;
+}
+
+.team-list {
+  background-color: rgb(36, 35, 35);
+
+padding: 10px 0;
+border-radius: 4px;
+margin:10px 0 0 0;
+}
+
+.team-list span {
+  font-size: 10px;
+  background-color: #47535a;
+  color: #000;
+  padding:0 5px;
+  margin-left: 10px;
+  border-radius: 2px;
+
+
+}
+.team-list btn {
+  padding:10px 30px;
+  background-color:#3c9402;
+  margin-top: 20px;
+  border-radius: 4px;
+  width: 100% !important;
+  cursor:pointer; 
+}
+
+.team-list btn:hover {
+  background-color: #a3cf02;
+}
+
+.team-list:hover {
+  background-color: #00000060 ;
+
+}
+
+
+#team-photo {
+  background:url(../images/boy1.jpg) no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
+}
+
 
 
 #avatar .team-title {
