@@ -136,6 +136,11 @@ font-weight: bold;
   font-size:20px;
   text-align: right;
 }
+.staked .BSC {
+  font-size: 15px;
+}
+
+
 .staked > span{
   font-weight: bold;
 }
@@ -144,21 +149,34 @@ font-weight: bold;
   font-weight: bold;
 }
 .ash {
-  font-size: 14px;
+  font-size: 18px;
   text-align: left;
   line-height:30px;
 }
 
 .staked btn {
-  background-color: #47535a;
+  background-color: #7429b9;
   border-radius: 3px;
   font-size: 14px;
   font-weight: bold;
-  margin-right:20px;
   text-align: center;
-  width: 21%;
   margin-top:20px;
   padding:10px;
+  cursor:pointer;
+
+}
+.staked btn:hover {
+  background-color: #9153e2;
+
+}
+
+
+
+#unstake {
+  background-color: #47535a;
+}
+#unstake:hover {
+  background-color: #5d666b;
 }
 
 
