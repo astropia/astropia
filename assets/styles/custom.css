@@ -1,9 +1,22 @@
+a {
+  color:inherit;
+}
+
+
 #background {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
 }
+.manta-desc {
+  text-align: left;
+  margin-bottom: 20px;
+  color:#ffffff70;
+
+}
+
+
 .pool {
   margin: 0px !important;
   padding: 30px 15px 15px 15px;
@@ -20,7 +33,7 @@
 
 .pool .btn {
   position: absolute;
-  right: 15px;
+  left: 15px;
   border: 0px solid rgb(181, 53, 255);
   background:rgb(45, 56, 78);
   width: 50%;
@@ -345,17 +358,22 @@ font-weight: bold;
   padding:160px 0 0;
   margin:0;
 }
+
+#wrapper1 {
+  padding:20px 0 0;
+  margin:0;
+}
 .weaponpic {
   width: 100px;
 
 }
 
 .team-title {
-  margin-right:15px;
+  margin-left:15px;
   font-weight: bold;
   font-size: 28px;
   color:white;
-  text-align: right;
+  text-align: left;
 
 }
 
@@ -371,6 +389,10 @@ font-weight: bold;
 .team-title h1 {
   font-size: 30px;
 }
+.team-title span {
+  font-size: 15px;
+}
+
 .team-title p {
   font-size: 15px;
   font-weight: normal;
@@ -511,6 +533,14 @@ svg {
 
 
 /* Meter animation */
+#meter1 {
+margin:0 0 40px 0;
+}
+#meter1 p {
+  text-align: left;
+}
+
+
 .meter {
   box-sizing: content-box;
   height: 10px; /* Can be anything */
