@@ -96,12 +96,29 @@ font-weight: bold;
   color:white;
 }
 
-
 .collection-list-1 {
   background: url(../images/boy1.jpg) no-repeat;
   background-size: cover;
   height:400px;
   margin:0;
+}
+
+.collection-list-00, .collection-list-02 {
+  background: url(../images/boy1.jpg) no-repeat;
+  background-size: cover;
+  height:400px;
+  margin:0;
+}
+
+.collection-list-01, .collection-list-03 {
+  background: url(../images/girl1.jpg) no-repeat;
+  background-size: cover;
+  height:400px;
+  margin:0;
+}
+.empty {
+  height: 477px;
+  background-color: #fff4;
 }
 
 .collection-desc {
@@ -263,15 +280,38 @@ font-weight: bold;
 .teams {
   background-color: #7429b9;
   border-radius: 10px;
-  padding:20px 10px;
+  padding: 14px 10px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.create {
+  margin-top: 20px;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #3c9402;
+  border-radius: 4px;
+}
+
+.create:hover{
+  background-color: #a3cf02;
 }
 
 .team-list {
   background-color: #00000020;
 
-padding: 10px 0;
-border-radius: 4px;
-margin:10px 0 0 0;
+  padding: 10px 0;
+  border-radius: 4px;
+  margin:10px 0 0 0;
+
+  display: flex;
+  align-items: center;
 }
 
 .team-list span {
@@ -288,7 +328,6 @@ margin:10px 0 0 0;
 .team-list btn {
   padding:10px 30px;
   background-color:#3c9402;
-  margin-top: 20px;
   border-radius: 4px;
   width: 100% !important;
   cursor:pointer; 
@@ -304,13 +343,29 @@ margin:10px 0 0 0;
 }
 
 
-#team-photo {
+#team-photo-00, #team-photo-02 {
   background:url(../images/boy1.jpg) no-repeat;
   background-size: cover;
   width: 50px;
   height: 50px;
   border-radius: 25px;
-
+}
+#team-photo-01, #team-photo-03 {
+  background:url(../images/girl1.jpg) no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.loading-room {
+  margin-top: 10px;
+  background-color: #fff4;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: .6;
 }
 
 
@@ -340,7 +395,7 @@ margin:10px 0 0 0;
   background-size: contain;
   width: 300px;
   height: 40px;
-  margin: 10px 0 0 0;
+  margin: 14px 0 0 0;
 }
 .nav-horizontal {
   z-index:10;
