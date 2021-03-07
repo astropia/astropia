@@ -10,7 +10,42 @@ const team = t => (`
   <div class="col-lg-7 "><b>${
     ['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2))]
   }<span>(${t.leader.substr(0, 10)}...)</span></b><br><b>Aim:</b> ${t.aim} light year</div>
-  <div class="col-lg-3"><a href="/join-team?${t.e}"><btn>JOIN</btn></a></div>
+  <div class="col-lg-3"><a onclick="join('${t.e}')"><btn>JOIN</btn></a></div>
+</div>
+`)
+
+const progress = t => (`
+<div class="col-lg-12 ongoing" style="margin-bottom: 30px;">
+  <div class="desc">Your
+    <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.member.substr(60, 2))]}</b>
+    is on an advanture with <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2))]}</b>
+    <span>(${t.leader.substr(0, 10)})</span>
+    <b>in Sirius.</b>
+  </div>
+  <div class="col-lg-12" style="padding-left:0;">
+    <div class="meter animate col-lg-12 time">
+      <span style="width: ${Math.floor(Number(t.progress) / Number(t.aim) * 100)}%"><span></span></span>
+      <p>Reture in ...</p>
+    </div>
+  </div>
+</div>
+`)
+
+const ended = t => (`
+<div class="row row-inline-block advanture-back" style="margin-bottom: 50px;">
+  <div class="desc col-lg-8 ">Team is back from
+    <b>Sirius</b>
+    <br>
+    <div class="back">Your
+    <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.member.substr(60, 2))]}</b>
+    and
+    <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2))]}</b>
+    <span>(${t.leader.substr(0, 10)})</span></div></div>
+  <div class="col-lg-4 " >
+    <div class="gift">
+      <div onclick="end('${t.e}')">🥟<br>Item Minted</div>
+    </div>
+  </div>
 </div>
 `)
 
@@ -47,7 +82,10 @@ const team = t => (`
   let lock = false
   let cards = []
   let working = []
+  let wIDs
   const rooms = document.querySelector('#rooms')
+  const progressDom = document.querySelector('#progress')
+  const endedDom = document.querySelector('#end')
   function update() {
     if (lock) {
       return
@@ -80,12 +118,30 @@ const team = t => (`
         }
         return works
       }).then(workIDs => {
+        wIDs = workIDs
         return Promise.all(workIDs.map(id => universe.methods.exploration(id).call()))
       }).then(es => {
-        working = es.map(item => ({
+        working = es.map((item, i)=> ({
+          e: wIDs[i],
           aim: item.aim,
-          leader: item.leader
+          leader: item.leader,
+          member: item.member,
+          progress: item.progress,
         }))
+
+        let ps = []
+        let endeds = []
+        for (const w of working) {
+          if (w.aim === w.progress) {
+            endeds.push(w)
+          } else {
+            ps.push(w)
+          }
+        }
+
+        progressDom.innerHTML = ps.map(w => progress(w)).join('\n')
+
+        endedDom.innerHTML = endeds.map(w => ended(w)).join('\n')
       })
     ]).then(() => {
       lock = false
@@ -96,7 +152,7 @@ const team = t => (`
   }, 2000)
 
   function createExploration(type) {
-    universe.methods.createExploration(ASTROPIA, cards[0], type * 3000 + 2000).send({
+    universe.methods.createExploration(ASTROPIA, cards[0], type * 30000 + 20000).send({
       from: account
     })
   }
@@ -104,4 +160,16 @@ const team = t => (`
   document.querySelector('#create-room').addEventListener('click', () => {
     createExploration(1)
   })
+
+  window.join = (e) => {
+    universe.methods.joinExploration(ASTROPIA, cards[0], e).send({
+      from: account
+    })
+  }
+
+  window.end = (e) => {
+    universe.methods.end(e).send({
+      from: account
+    })
+  }
 })()
