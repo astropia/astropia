@@ -1,6 +1,6 @@
-const ORIGIN = '0x2B158bf42f1E1c9909D66F789853d6fD07A68f11'
-const ASTROPIA = '0xe5C26f8435ac53e976A42118DDA67C167d39d646'
-const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
+const ORIGIN = '0xC57742DA0C7b34EAaC31592Eb0f4643f73C51332'
+const ASTROPIA = '0x56cB3e4027f93D9d04655FFB32db3770c997FA71'
+const UNIVERSE = '0x0589572f17f6Bd1101448a49fd54fa1cddDDfa3D'
 
 const team = t => (`
 <div class="col-lg-12 team-list ">
@@ -8,7 +8,7 @@ const team = t => (`
     <div id="team-photo-${t.e.substr(60, 2)}"></div>
   </div>
   <div class="col-lg-7 "><b>${
-    ['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2))]
+    ['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2)) - 1]
   }<span>(${t.leader.substr(0, 10)}...)</span></b><br><b>Aim:</b> ${t.aim} light year</div>
   <div class="col-lg-3"><a onclick="join('${t.e}')"><btn>JOIN</btn></a></div>
 </div>
@@ -17,8 +17,8 @@ const team = t => (`
 const progress = t => (`
 <div class="col-lg-12 ongoing" style="margin-bottom: 30px;">
   <div class="desc">Your
-    <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.member.substr(60, 2))]}</b>
-    is on an advanture with <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2))]}</b>
+    <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.member.substr(60, 2)) - 1]}</b>
+    is on an advanture with <b>${['CJ-D', 'Astro', 'CJ-D Plus', 'Astro Plus'][Number(t.leader.substr(60, 2)) - 1]}</b>
     <span>(${t.leader.substr(0, 10)})</span>
     <b>in Sirius.</b>
   </div>
@@ -76,8 +76,10 @@ const ended = t => (`
   }
 
   const web3 = new Web3(window.ethereum)
-  const astropia = new web3.eth.Contract(ASTROPIA_ABI, ASTROPIA)
+  const queryWeb3 = new Web3('http://127.0.0.1:8545')
   const universe = new web3.eth.Contract(UNIVERSE_ABI, UNIVERSE)
+  const queryAstropia = new queryWeb3.eth.Contract(ASTROPIA_ABI, ASTROPIA)
+  const queryUniverse = new queryWeb3.eth.Contract(UNIVERSE_ABI, UNIVERSE)
 
   let lock = false
   let cards = []
@@ -92,20 +94,20 @@ const ended = t => (`
     }
     lock = true
     Promise.all([
-      universe.methods.allPendingExpsDetail().call().then(res => {
+      queryUniverse.methods.allPendingExpsDetail().call().then(res => {
         const exps = []
         for (let i = 0; i < res.es.length; i++) {
           exps[i] = {
-            e: web3.utils.toHex(res.es[i]),
+            e: '0x' + web3.utils.toHex(res.es[i]).substr(2).padStart(64, '0'),
             aim: res.aims[i],
-            leader: web3.utils.toHex(res.leaders[i]),
+            leader: '0x' + web3.utils.toHex(res.leaders[i]).substr(2).padStart(64, '0'),
           }
         }
         // console.log(exps)
         const html = exps.map(e => team(e)).join('\n')
         rooms.innerHTML = html
       }),
-      astropia.methods.allCardsOf(account).call().then(res => {
+      queryAstropia.methods.allCardsOf(account).call().then(res => {
         const c = []
         const works = []
         for (let i = 0; i < res.cards.length; i++) {
@@ -119,13 +121,13 @@ const ended = t => (`
         return works
       }).then(workIDs => {
         wIDs = workIDs
-        return Promise.all(workIDs.map(id => universe.methods.exploration(id).call()))
+        return Promise.all(workIDs.map(id => queryUniverse.methods.exploration(id).call()))
       }).then(es => {
         working = es.map((item, i)=> ({
           e: wIDs[i],
           aim: item.aim,
-          leader: item.leader,
-          member: item.member,
+          leader: '0x' + web3.utils.toHex(item.leader).substr(2).padStart(64, '0'),
+          member: '0x' + web3.utils.toHex(item.member).substr(2).padStart(64, '0'),
           progress: item.progress,
         }))
 

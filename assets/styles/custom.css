@@ -103,14 +103,14 @@ font-weight: bold;
   margin:0;
 }
 
-.collection-list-00, .collection-list-02 {
+.collection-list-01, .collection-list-03 {
   background: url(../images/boy1.jpg) no-repeat;
   background-size: cover;
   height:400px;
   margin:0;
 }
 
-.collection-list-01, .collection-list-03 {
+.collection-list-02, .collection-list-04 {
   background: url(../images/girl1.jpg) no-repeat;
   background-size: cover;
   height:400px;
@@ -343,14 +343,14 @@ font-weight: bold;
 }
 
 
-#team-photo-00, #team-photo-02 {
+#team-photo-01, #team-photo-03 {
   background:url(../images/boy1.jpg) no-repeat;
   background-size: cover;
   width: 50px;
   height: 50px;
   border-radius: 25px;
 }
-#team-photo-01, #team-photo-03 {
+#team-photo-02, #team-photo-04 {
   background:url(../images/girl1.jpg) no-repeat;
   background-size: cover;
   width: 50px;

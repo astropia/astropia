@@ -1,6 +1,6 @@
-const ORIGIN = '0x2B158bf42f1E1c9909D66F789853d6fD07A68f11'
-const ASTROPIA = '0xe5C26f8435ac53e976A42118DDA67C167d39d646'
-const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
+const ORIGIN = '0xC57742DA0C7b34EAaC31592Eb0f4643f73C51332'
+const ASTROPIA = '0x56cB3e4027f93D9d04655FFB32db3770c997FA71'
+const UNIVERSE = '0x0589572f17f6Bd1101448a49fd54fa1cddDDfa3D'
 
 ;(async () => {
   let account
@@ -29,7 +29,9 @@ const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
   }
 
   const web3 = new Web3(window.ethereum)
+  const queryWeb3 = new Web3('http://127.0.0.1:8545')
   const contract = new web3.eth.Contract(ASTROPIA_ABI, ASTROPIA)
+  const queryContract = new queryWeb3.eth.Contract(ASTROPIA_ABI, ASTROPIA)
 
   const ash = document.querySelector('#ash')
   const balance = document.querySelector('#balance')
@@ -39,7 +41,7 @@ const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
       return
     }
     lock = true
-    contract.methods.crystalOf(account).call().then(res => {
+    queryContract.methods.crystalOf(account).call().then(res => {
       ash.innerHTML = (Number(res.amount) / 1e19).toFixed(2)
       balance.innerHTML = (Number(res.investment) / 1e18).toFixed(2)
       lock = false
@@ -47,7 +49,7 @@ const UNIVERSE = '0x11FE79Eb99e82dfeC828B1FfaE6AB99463787085'
   }
   setInterval(() => {
     update()
-  }, 2000)
+  }, 1000)
 
   function invest(amount) {
     contract.methods.invest().send({
