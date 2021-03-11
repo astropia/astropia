@@ -1,6 +1,6 @@
-const ORIGIN = '0xC57742DA0C7b34EAaC31592Eb0f4643f73C51332'
-const ASTROPIA = '0x56cB3e4027f93D9d04655FFB32db3770c997FA71'
-const UNIVERSE = '0x0589572f17f6Bd1101448a49fd54fa1cddDDfa3D'
+const ORIGIN = '0x02Ad248E72F1443253e8C29B4ef4d394Bd859921'
+const ASTROPIA = '0x466774a36a99941C99069Ad4F69c6845dF83d366'
+const UNIVERSE = '0x6Caae7e411A2276c4aC6725914Ec06c3bD615d96'
 
 const card = id => (`
 <div class="col-lg-3 col-md-6 col-xs-12 collection-list">
@@ -39,7 +39,7 @@ const card = id => (`
     chainID = Number(chainID)
   }
 
-  const web3 = new Web3('http://127.0.0.1:8545')
+  const web3 = new Web3('https://data-seed-prebsc-2-s1.binance.org:8545/')
   const contract = new web3.eth.Contract(ASTROPIA_ABI, ASTROPIA)
 
   let lock = false

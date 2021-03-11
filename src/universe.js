@@ -168,15 +168,19 @@ function draw(gl) {
 ;(() => {
   const canvas = document.createElement('canvas')
   canvas.id = 'background'
-  canvas.width = innerWidth
-  canvas.height = innerHeight
+  canvas.width = innerWidth * 0.8
+  canvas.height = innerHeight * 0.8
+  canvas.style.width = innerWidth + 'px'
+  canvas.style.height = innerHeight + 'px'
   const gl = canvas.getContext('webgl')
   draw(gl)
 
   document.body.append(canvas)
 
   window.addEventListener('resize', () => {
-    canvas.width = innerWidth
-    canvas.height = innerHeight
+    canvas.width = innerWidth * 0.8
+    canvas.height = innerHeight * 0.8
+    canvas.style.width = innerWidth + 'px'
+    canvas.style.height = innerHeight + 'px'
   })
 })()
